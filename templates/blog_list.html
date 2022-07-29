@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+</head>
+<body>
+    {% block content %}
+    
+    Blog List
+    <br>
+    {% for post in posts %}
+    <a href="{% url 'blog:detail' post.id %}">{{post.title}}</a>
+    <a href="{% url 'blog:update' post.id %}">Edit</a>
+    <a href="{% url 'blog:delete' post.id %}">Delete</a>
+    {% endfor %}
+    <br>
+    <div><a href="{% url 'blog:create' %}">Create</a></div>
+    
+    {% endblock content %}
+
+    
+</body>
+</html>
